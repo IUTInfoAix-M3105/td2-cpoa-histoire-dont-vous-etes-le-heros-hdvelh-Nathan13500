@@ -21,7 +21,7 @@ public class Scenario {
 	public static void main(String[] args) {
 		Scenario scenario;
 		GUIManager gui = new GUIManager(System.in, System.out, System.err);
-
+		//test
 		// S
 		// *1:event1
 		// **1.1
