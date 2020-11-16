@@ -15,12 +15,13 @@ public class NodeMultiple {
 	public static final int ERROR_STATUS_INDEX_OUT_OF_RANGE = -1;
 	public static final String ERROR_MSG_INDEX_OUT_OF_RANGE = "Index out of range";
 	public static int NODE_MAX_ARITY = 10;
-	private Object data;
-	private NodeMultiple[] daughters;
+	private static Object data;
+	private static NodeMultiple[] daughters;
 
 	/* Overridden methods */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return data.toString();
 	}
 
@@ -33,16 +34,18 @@ public class NodeMultiple {
 	 * @param i the index of the daughter node.
 	 * @return the {@code i}th daughter node, or {@code null} if it does not exist.
 	 */
-	public NodeMultiple getDaughter(int i) {
-		/* TO BE COMPLETED */
+	public NodeMultiple getDaughter(int i)
+	{
 		if(i>= NODE_MAX_ARITY || i < 0)
 		{
 			ErrorNaiveHandler.abort(ERROR_STATUS_INDEX_OUT_OF_RANGE,ERROR_MSG_INDEX_OUT_OF_RANGE+ '@'+ getClass() + ".getDaughter");
 		}
-		return daughters(i);
+		return daughters[i];
 	}
 
-	}
+
+
+}
 
 	/**
 	 * Sets the {@code i}th daughter node to the input parameter {@code daughter}.
@@ -58,22 +61,26 @@ public class NodeMultiple {
 	 * @param daughter the node to be linked as a daughter of {@code this} node.
 	 * @param i        the daughter node's index
 	 */
-	public void setDaughter(NodeMultiple daughter, int i) {
-		/* TO BE COMPLETED */
+	public void setDaughter(NodeMultiple daughter, int i)
+	{
+		if ( i > NODE_MAX_ARITY)
+			return;
+		daughters[i] = daughter;
 	}
 
 	/**
 	 * @return all the daughters
 	 */
-	public NodeMultiple[] getDaughters() {
-		/* TO BE COMPLETED */
+	public NodeMultiple[] getDaughters()
+	{
+		return daughters;
 	}
 
 	/**
 	 * @param daughters the daughters to set
 	 */
-	public void setDaughters(NodeMultiple[] daughters) {
-		/* TO BE COMPLETED */
+	public void setDaughters(NodeMultiple[] daughters)
+	{
 		this.daughters = daughters;
 	}
 
@@ -99,21 +106,20 @@ public class NodeMultiple {
 		{
 			daughters[i] = daughter;
 		}
-		/* TO BE COMPLETED */
 	}
 
 	/**
 	 * @return the content data
 	 */
 	public Object getData() {
-		/* TO BE COMPLETED */
+		return data;
 	}
 
 	/**
 	 * @param data
 	 */
 	public void setData(Object data) {
-		/* TO BE COMPLETED */
+		this.data = data;
 	}
 
 	/**
@@ -130,7 +136,7 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple() {
 		this.data = null;
-		daughter = new NodeMultiple(NODE_MAX_ARITY);
+		daughters = new NodeMultiple[NODE_MAX_ARITY];
 	}
 
 	/**
