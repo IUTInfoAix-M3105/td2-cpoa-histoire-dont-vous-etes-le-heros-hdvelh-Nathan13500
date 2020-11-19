@@ -17,6 +17,30 @@ public class Event extends NodeMultiple {
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
+	private String playerAnswer;
+	private GUIManager gui;
+	private int id;
+	private int chosenPath;
+	private Scanner reader;
+
+
+	/**
+	 * @constructor
+	 */
+	public Event(GUIManager gui, String data) {
+		this.gui = gui;
+		this.playerAnswer = data;
+	}
+
+	public Event() {
+		this.playerAnswer = null;
+
+	}
+
+	@Override
+	public String toString(){
+		return
+	}
 
 	/**
 	 * @return the playerAnswer
@@ -116,7 +140,7 @@ public class Event extends NodeMultiple {
 
 	/* Methods */
 	/* TO BE COMPLETED */
-	}
 }
+
 
 // eof
