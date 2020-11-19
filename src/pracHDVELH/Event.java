@@ -30,6 +30,7 @@ public class Event extends NodeMultiple {
 	 */
 
 	public Event() {
+		this(new GUIManager(),"");
 	}
 
 	public Event(GUIManager gui, String data) {
@@ -146,6 +147,14 @@ public class Event extends NodeMultiple {
 
 	/* Methods */
 	/* TO BE COMPLETED */
+	public Event run(){
+		gui.outputln(this.toString());
+
+		gui.output(PROMPT_ANSWER);
+		playerAnswer = reader.next();
+		chosenPath = interpretAnswer();
+		return getDaughter(chosenPath);
+	}
 }
 
 
